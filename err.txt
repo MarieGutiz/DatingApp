@@ -1,0 +1,11 @@
+OmniSharp server started.
+    Path: c:\Users\LovART\.vscode\extensions\ms-dotnettools.csharp-1.23.8\.omnisharp\1.37.5\OmniSharp.exe
+    PID: 6636
+
+'c:\Users\LovART\.vscode\extensions\ms-dotnettools.csharp-1.23.8\.omnisharp\1.37.5\OmniSharp.exe' is not recognized as an internal or external command,
+operable program or batch file.
+prin thn egkatastash ton bibli8hkwn
+
+/////meta
+Downloading package 'OmniSharp for Windows (.NET 4.6 / x64)' 	Retrying from 'https://roslynomnisharp.blob.core.windows.net/releases/1.37.5/omnisharp-win-x64-1.37.5.zip' Failed at stage: downloadPackage
+Error: connect ECONNREFUSED 127.0.0.1:80
