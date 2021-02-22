@@ -3,8 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-/API/
-API/*
+
+API/appsettings.json
+API/appsettings.Development.json
+
 # User-specific files
 *.rsuser
 *.suo
@@ -442,4 +444,7 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8986bb356a424791bef9d1418480e026c1a43c16
