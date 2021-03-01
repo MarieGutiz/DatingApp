@@ -1,0 +1,14 @@
+<div class="form-group">
+    <input  [class.is-invalid]="control.touched && control.invalid"
+     type="text"
+     class="form-control"   
+     name={{label}} [ngModel]="value" 
+     placeholder={{label}}
+     (ngModelChange)="change($event)"
+     (blur)="onTouched()" 
+     bsDatepicker [bsConfig]='bsConfig'
+     [maxDate]='maxDate'
+     >
+     <div *ngIf="control.errors?.required"
+     class="invalid-feedback" >{{label}} is required</div>
+</div>
