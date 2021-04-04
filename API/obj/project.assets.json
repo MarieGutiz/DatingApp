@@ -1765,11 +1765,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\DatingApp\\API\\API.csproj",
+      "projectUniqueName": "D:\\DatingApp\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "d:\\DatingApp\\API\\API.csproj",
+      "projectPath": "D:\\DatingApp\\api\\API.csproj",
       "packagesPath": "C:\\Users\\LovART\\.nuget\\packages\\",
-      "outputPath": "d:\\DatingApp\\API\\obj\\",
+      "outputPath": "D:\\DatingApp\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LovART\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1855,7 +1855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }
