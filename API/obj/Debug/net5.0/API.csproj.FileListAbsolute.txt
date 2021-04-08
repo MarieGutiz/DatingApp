@@ -69,3 +69,8 @@ D:\DatingApp\api\obj\Debug\net5.0\scopedcss\bundle\API.styles.css
 D:\DatingApp\api\obj\Debug\net5.0\API.RazorTargetAssemblyInfo.cache
 D:\DatingApp\api\obj\Debug\net5.0\API.csproj.CopyComplete
 D:\DatingApp\api\obj\Debug\net5.0\API.genruntimeconfig.cache
+D:\DatingApp\api\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\DatingApp\api\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\DatingApp\api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\DatingApp\api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\DatingApp\api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
