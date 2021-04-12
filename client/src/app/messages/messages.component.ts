@@ -34,8 +34,9 @@ export class MessagesComponent implements OnInit {
        this.messages.splice(this.messages.findIndex(m=>m.id === id),1)
      })
    }
-   pageChanged(evt:any){
+   pageChanged(evt:any){//problems with pagination
      this.pageNumber = evt.page;
      this.loadMessage();
+     //https://localhost:5001/api/messages?pageNumber=2&pageSize=4&Container=Inbox
    }
 }
