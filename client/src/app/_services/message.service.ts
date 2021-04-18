@@ -44,11 +44,13 @@ export class MessageService {
       })
 
       this.hubConnection.on('UpdatedGroup', (group:Group)=>{
-        if(group.connections.some(x =>x.username === otherUsername)){
-          this.messageThread$.pipe(take(1)).subscribe(messages =>{
+        if(group.connections.some(x => x.username === otherUsername)){
+          console.log("On the same group")
+          this.messageThread$.pipe(take(1)).subscribe(messages =>{//See if there's an unread message when connected & marked as read
            messages.forEach(message =>{
              if(!message.dateRead){
                message.dateRead = new Date(Date.now());
+              //  console.log("message read at "+message.dateRead)
              }
            })
            this.messageThreadSource.next([...messages]);
@@ -65,7 +67,7 @@ export class MessageService {
 
   getMessage(pageNumber:number, pageSize:number, container:string){
      let params = getPaginationHeader(pageNumber,pageSize)
-     params = params.append('Container', container);
+     params = params.append('container', container);
 
      return getPaginatedResult<Message[]>(this.baseUrl+'messages',params, this.http);
   }
