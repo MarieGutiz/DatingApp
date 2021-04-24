@@ -23,7 +23,7 @@ namespace API.Middleware
 
         public async Task InvokeAsync(HttpContext context){
             try{
-                await _next(context);
+                await _next(context);//problems with heroku
             }
             catch(Exception e){
                 _logger.LogError(e,e.Message);
