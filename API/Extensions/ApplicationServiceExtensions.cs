@@ -44,7 +44,7 @@ services.AddDbContext<DataContext>(options =>{//problems with heroku
         var pgHost = pgHostPort.Split(":")[0];
         var pgPort = pgHostPort.Split(":")[1];
 
-        connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb}";
+        connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};sslmode=require";
 
     // Whether the connection string came from the local development configuration file
     // or from the environment variable from Heroku, use it to set up your DbContext.
