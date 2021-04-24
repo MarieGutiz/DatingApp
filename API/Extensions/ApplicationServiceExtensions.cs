@@ -31,7 +31,8 @@ services.AddDbContext<DataContext>(options =>{//problems with heroku
 
     string connStr;
  // Use connection string provided at runtime by Heroku.
-        var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+      //  var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+      var connUrl = "postgres://itasqpqbcqqorg:be428d4f01b62a8ccd340992116e6f638e0ce2d8e19649e9025bbcc19fca5465@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d2clluo45fs2km";
 
         // Parse connection URL to connection string for Npgsql
         connUrl = connUrl.Replace("postgres://", string.Empty);
@@ -44,7 +45,7 @@ services.AddDbContext<DataContext>(options =>{//problems with heroku
         var pgHost = pgHostPort.Split(":")[0];
         var pgPort = pgHostPort.Split(":")[1];
 
-        connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};sslmode=Require;";
+        connStr = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};SSL Mode=Require;Trust Server Certificate=true";
 
     // Whether the connection string came from the local development configuration file
     // or from the environment variable from Heroku, use it to set up your DbContext.
