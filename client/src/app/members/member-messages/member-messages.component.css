@@ -14,3 +14,13 @@
 .rounded-circle{
     max-height: 40px;
 }
+[ng-cloak] {
+    display: none;
+}
+.sample-show-hide {
+    transition: all linear 0.5s;
+  }
+  .sample-show-hide.ng-hide {
+    
+    opacity: 0;
+  }

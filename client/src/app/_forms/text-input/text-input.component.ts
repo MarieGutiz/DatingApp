@@ -1,5 +1,5 @@
-import { Component, ElementRef, forwardRef, Input, Self} from '@angular/core';
-import { ControlValueAccessor, FormControl, NgControl, NG_VALUE_ACCESSOR ,ReactiveFormsModule } from '@angular/forms';
+import { Component, ElementRef, Input} from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-text-input',

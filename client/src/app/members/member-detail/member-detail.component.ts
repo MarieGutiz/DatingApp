@@ -9,6 +9,7 @@ import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MessageService } from 'src/app/_services/message.service';
 import { PresenceService } from 'src/app/_services/presence.service';
+import { MemberMessagesComponent } from '../member-messages/member-messages.component';
 
 @Component({
   selector: 'app-member-detail',
@@ -26,6 +27,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   messages: Message[] = [];
   value!: string;
   user!: User;
+  showctrl=false;
 
   constructor(public presence:PresenceService, private route:ActivatedRoute, private messageService:MessageService,
     private accountService:AccountService, private router:Router) {
@@ -81,14 +83,20 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     return imageUrl;
   }
 
- onTabActivated(data:TabDirective){//para que no carge lo demas
+ onTabActivated(data:TabDirective){//para que no carge lo demas  
   this.activeTab = data;
   if(this.activeTab.heading === 'Messages' && this.messages.length ===0){
    // this.loadMessage()
    this.messageService.createHubConnection(this.user,this.member.username);
+   setTimeout(()=>{  
+    this.showctrl=true;
+    // console.log("memberdatail show "+this.showctrl) //problems with tabs     
+    }, 600)
+   
   }
   else{
     this.messageService.stopHubConnection();
+   this.showctrl =false
   }
  }
 

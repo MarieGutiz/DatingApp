@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Group } from '../_models/group';
 import { Message } from '../_models/message';
 import { User } from '../_models/user';
+import { BusyService } from './busy.service';
 import { getPaginatedResult, getPaginationHeader } from './paginationHelper';
 
 @Injectable({
@@ -20,10 +21,10 @@ export class MessageService {
   messageThread$ = this.messageThreadSource.asObservable();
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private busyService:BusyService) { }
 
   createHubConnection(user:User, otherUsername:string){
-
+       this.busyService.busy();
       this.hubConnection = new HubConnectionBuilder()
       .withUrl(this.hubUrl +'message?user='+ otherUsername,{
         accessTokenFactory: ()=> user.token
@@ -31,7 +32,10 @@ export class MessageService {
       .withAutomaticReconnect()
       .build();
 
-      this.hubConnection.start().catch(error => console.log(console.error()))
+      this.hubConnection.start()
+      .catch(error => console.log(console.error()))
+      .finally(()=> {this.busyService.idle()
+    })
 
       this.hubConnection.on('ReceiveMessageThread',messages =>{
         this.messageThreadSource.next(messages)
@@ -45,12 +49,10 @@ export class MessageService {
 
       this.hubConnection.on('UpdatedGroup', (group:Group)=>{
         if(group.connections.some(x => x.username === otherUsername)){
-          console.log("On the same group")
           this.messageThread$.pipe(take(1)).subscribe(messages =>{//See if there's an unread message when connected & marked as read
            messages.forEach(message =>{
              if(!message.dateRead){
                message.dateRead = new Date(Date.now());
-              //  console.log("message read at "+message.dateRead)
              }
            })
            this.messageThreadSource.next([...messages]);
@@ -61,6 +63,7 @@ export class MessageService {
 
   stopHubConnection(){
     if(this.hubConnection){
+      this.messageThreadSource.next([])
       this.hubConnection.stop()
     }
   }
