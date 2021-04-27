@@ -91,7 +91,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
    setTimeout(()=>{  
     this.showctrl=true;
     // console.log("memberdatail show "+this.showctrl) //problems with tabs     
-    }, 600)
+    }, 1000)
    
   }
   else{
