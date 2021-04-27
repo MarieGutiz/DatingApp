@@ -31,8 +31,8 @@ services.AddDbContext<DataContext>(options =>{//problems with heroku
 
     string connStr;
  // Use connection string provided at runtime by Heroku.
-    // var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-     var connUrl = "postgres://itasqpqbcqqorg:be428d4f01b62a8ccd340992116e6f638e0ce2d8e19649e9025bbcc19fca5465@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/d2clluo45fs2km";
+  var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+    
 
         // Parse connection URL to connection string for Npgsql
         connUrl = connUrl.Replace("postgres://", string.Empty);
